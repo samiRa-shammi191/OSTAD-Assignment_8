@@ -34,6 +34,7 @@ class ProfileController extends Controller
         $cookie = Cookie::make($cookieName, $cookieValue, $minutes, $path, $domain, $secure, $httpOnly);
         $response->withCookie($cookie);
 
-return $response;
+        return response()->json($data, 200, [], JSON_PRETTY_PRINT)->cookie($cookie);
+    
     }
 }
